@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>这是一个模板</h1>
+<br>
+{#下面是一个变量代码块的使用：{{ } }}#}
+
+{#字符串的使用#}
+{{ url}}<br>
+{#列表的使用#}
+{{ list }}<br>
+{{ list.2 }}<br>   {# 取值方式一 #}
+{{ list[2] }}<br>   {# 取值方式二 #}
+{# 字典的使用 #}
+{{dict}}<br>
+{{dict.age}}<br>{# 取值方式一 #}
+{{dict['age']}}<br>{# 取值方式二 #}
+{# 整型使用 #}
+{{ int_ }}
+
+<hr>
+{#下面是一个控制代码块的使用：{% %}#}
+
+{#for循环使用，建议先写for,然后按住tab去补全#}
+{% for num in list %}
+    {# 数据大于3，才能显示  if判断 #}
+    {% if num>3 %}
+         {{ num }}<br>
+    {% endif %}
+{% endfor %}
+<hr>
+{#过滤器#}
+{#添加过滤器：将字符串变大写#}
+{{ url  | upper }}
+{#字符串反转#}
+{{ url |  reverse}}
+
+{#过滤器链式调用#}
+{#大写反转#}
+{{ url  | upper |  reverse}}
+
+</body>
+</html>

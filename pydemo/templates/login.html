@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body>
+
+    <form method="post">
+        <label>用户名：</label><input type="text" name="username"><br>
+        <label>密码：</label><input type="text" name="password"><br>
+        <label>确认密码：</label><input type="text" name="password2"><br>
+        <input type="submit" value="提交">
+
+        {# 使用遍历来获取闪现的消息   #}
+        {% for message in get_flashed_messages() %}
+                   {{ message }}
+        {% endfor %}
+    </form>
+
+    <hr>
+    <form method="post">
+         {{ login_from.csrf_token() }}
+         {{ login_from.username.label  }}{{ login_from.username  }}<br>
+         {{ login_from.password.label }}{{ login_from.password  }}<br>
+         {{ login_from.password2.label  }}{{ login_from.password2  }}<br>
+         {{ login_from.submit  }}
+    </form>
+</body>
+</html>

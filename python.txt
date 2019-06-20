@@ -137,7 +137,7 @@ for i in cs:			#遍历游标
 conn.close
 
 
-异常：
+异常：(异常处理细化：监控for循环中是否存在异常)
 for i in range(0,10):
 	try:
 		print(i)
@@ -147,3 +147,60 @@ for i in range(0,10):
 		print(err)
 print("123")
 
+
+
+面向对象：类和对象
+
+创建一个类
+class person:
+	passwd
+实列化一个类
+a=person()
+
+
+构造函数(构造方法)
+self:在类中的方法必须加上self参数
+__init__(self,参数)
+构造函数实际意义：初始化
+
+举例：
+class a:
+	#无参构造方法
+	def __init__(self):
+		print("自动触发执行构造方法")
+	#带参构造方法
+	def __init__(self,name):
+		print("自动触发执行构造方法"+name)
+
+属性：类中变量：self.属性名
+
+class b:
+	def __init__(self,name,job):
+		self.myname=name
+		self.myjob=job
+		
+		
+继承：单继承，多继承
+
+父类(基类)
+class father():
+	def speak(self):
+		print("会说")
+单继承
+class son(father)
+	pass
+
+第二个父类(基类)
+class mother():
+	def while(self):
+		print("会写")
+多继承
+class daughter(father,mother):
+	除了继承的方法外还有自己的方法
+	def listen(self):
+		print("能听")
+
+重写(重载)
+class son1(father):
+	def speak(self):
+		print("很会说")

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="add">
+        <label>名字：</label><input type="text" name="name"><br>
+        <label>外键id：</label><input type="text" name="roles_id"><br>
+        <input type="submit" value="提交">
+    </form>
+
+    <hr>
+    <table border="1">
+              <tr>
+                <th>主键</th>
+                <th>名称</th>
+                <th>外键</th>
+                <th>删除</th>
+                <th>修改</th>
+              </tr>
+        {% for i in user %}
+              <tr>
+                <th>{{ i.id }}</th>
+                <th>{{ i.name }}</th>
+                <th>{{ i.roles_id }}</th>
+
+                <th><a href="/delUser/{{ i.id }}">删除</a></th>
+                <th>修改</th>
+              </tr>
+        {% endfor %}
+    </table>
+
+        {# 使用遍历来获取闪现的消息   #}
+        {% for message in get_flashed_messages() %}
+                   {{ message }}
+        {% endfor %}
+</body>
+</html>
