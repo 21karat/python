@@ -25,8 +25,9 @@
                 <th>{{ i.id }}</th>
                 <th>{{ i.name }}</th>
                 <th>{{ i.roles_id }}</th>
-                <th><a href="/update/{{ i.id }}">修改</a></th>
+
                 <th><a href="/delUser/{{ i.id }}">删除</a></th>
+                <th><a href="/update/{{ i.id }}">修改</a></th>
               </tr>
         {% endfor %}
     </table>

@@ -5,9 +5,10 @@
     <title>修改</title>
 </head>
 <body>
-    <form method="post" action="add">
+    <form method="post" action="/updateUser">
+        <label>主键：</label><input type="text" name="id" value="{{ user.id }}"><br>
         <label>名字：</label><input type="text" name="name" value="{{ user.name }}"><br>
-        <label>外键id：</label><input type="text" name="roles_id" value="{{ user.roles_id }}"><br>
+        <label>外键：</label><input type="text" name="roles_id" value="{{ user.roles_id }}"><br>
         <input type="submit" value="提交">
     </form>
 </body>

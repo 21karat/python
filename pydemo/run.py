@@ -36,6 +36,7 @@ class User(db.Model):
         self.name = name
         self.roles_id = roles_id
 
+
 ############################################################################################
 #   查
 @app.route('/', methods=['GET', 'POST'])
@@ -92,17 +93,22 @@ def update(id):
 
 #   修改
 @app.route('/updateUser',methods=['GET','POST'])
-def update():
+def updateUser():
+    print('66666')
+    id = request.form.get('id')
     name = request.form.get('name')
     roles_id = request.form.get('roles_id')
-    user = User(name, roles_id)
+
+    user = User.query.filter_by(id=id).first()
+    user.name=name
+    user.roles_id=roles_id
     #   添加数据
-    db.session.update(user)
     db.session.commit()
     #   查看
     user = User.query.all()
     return render_template('user.html', user=user)
 
+############################################################################################
 
 if __name__ == '__main__':
       app.run(debug=True)
