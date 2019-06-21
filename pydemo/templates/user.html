@@ -7,7 +7,7 @@
 <body>
     <form method="post" action="add">
         <label>名字：</label><input type="text" name="name"><br>
-        <label>外键id：</label><input type="text" name="roles_id"><br>
+        <label>外键：</label><input type="text" name="roles_id"><br>
         <input type="submit" value="提交">
     </form>
 
@@ -25,9 +25,8 @@
                 <th>{{ i.id }}</th>
                 <th>{{ i.name }}</th>
                 <th>{{ i.roles_id }}</th>
-
+                <th><a href="/update/{{ i.id }}">修改</a></th>
                 <th><a href="/delUser/{{ i.id }}">删除</a></th>
-                <th>修改</th>
               </tr>
         {% endfor %}
     </table>

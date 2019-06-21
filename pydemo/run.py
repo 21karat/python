@@ -76,5 +76,33 @@ def delUser(id):
         return render_template('user.html', user=user)
 
 
+#   改跳转
+@app.route('/update/<id>',methods=['GET','POST'])
+def update(id):
+    print(id)
+    #   查看
+    if id != "":
+        user = User.query.filter_by(id=id).first()
+        return render_template('update.html', user=user)
+    else:
+        flash(u'修改失败')
+        #   查看
+        user = User.query.all()
+        return render_template('user.html', user=user)
+
+#   修改
+@app.route('/updateUser',methods=['GET','POST'])
+def update():
+    name = request.form.get('name')
+    roles_id = request.form.get('roles_id')
+    user = User(name, roles_id)
+    #   添加数据
+    db.session.update(user)
+    db.session.commit()
+    #   查看
+    user = User.query.all()
+    return render_template('user.html', user=user)
+
+
 if __name__ == '__main__':
       app.run(debug=True)
